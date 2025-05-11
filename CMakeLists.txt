@@ -7,4 +7,6 @@ add_executable(CourseProject main.cpp
         Figure.cpp
         Figure.h
         Rhomb.cpp
-        Rhomb.h)
+        Rhomb.h
+        MyRectangle.cpp
+        MyRectangle.h)

@@ -6,7 +6,7 @@
 
 class Rhomb : public Figure {
 protected:
-    LONG firstDiagonal, secondDiagonal;
+    LONG firstHalfDiagonal, secondHalfDiagonal;
     void printFigure(COLORREF bgColor) override;
     POINT& getCoords() override;
 public:

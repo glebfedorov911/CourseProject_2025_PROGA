@@ -10,7 +10,7 @@ protected:
     HDC hdc;
     POINT points[4];
 
-    virtual void printFigure(COLORREF bgColor) {};
+    virtual void printFigure(COLORREF bgColor);
     virtual POINT& getCoords();
 public:
     Figure(LONG x, LONG y);
@@ -19,7 +19,7 @@ public:
 
     virtual void show() {};
     virtual void hide() {};
-    virtual void move(LONG newX, LONG newY) {};
+    virtual void move(LONG newX, LONG newY);
 };
 
 
