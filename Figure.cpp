@@ -40,3 +40,11 @@ void Figure::move(LONG newX, LONG newY) {
     this->y = newY;
     show();
 }
+
+LONG Figure::getX() {
+    return this->x;
+}
+
+LONG Figure::getY() {
+    return this->y;
+}

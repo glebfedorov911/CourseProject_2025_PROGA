@@ -9,4 +9,6 @@ add_executable(CourseProject main.cpp
         Rhomb.cpp
         Rhomb.h
         MyRectangle.cpp
-        MyRectangle.h)
+        MyRectangle.h
+        ComplexFigure.cpp
+        ComplexFigure.h)

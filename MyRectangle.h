@@ -8,7 +8,6 @@ class MyRectangle : public Figure {
 protected:
     LONG halfDiagonal;
     void printFigure(COLORREF bgColor) override;
-    POINT& getCoords() override;
 public:
     MyRectangle(LONG x, LONG y, LONG halfDiagonal);
     ~MyRectangle() override = default;
@@ -16,6 +15,9 @@ public:
     void show() override;
     void hide() override;
     void move(LONG newX, LONG newY) override;
+    POINT& getCoords() override;
+    LONG getX() override;
+    LONG getY() override;
 };
 
 

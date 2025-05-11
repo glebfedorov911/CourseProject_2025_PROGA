@@ -8,7 +8,6 @@ class Rhomb : public Figure {
 protected:
     LONG firstHalfDiagonal, secondHalfDiagonal;
     void printFigure(COLORREF bgColor) override;
-    POINT& getCoords() override;
 public:
     Rhomb(LONG x, LONG y, LONG firstDiagonal, LONG secondDiagonal);
     ~Rhomb() override = default;
@@ -16,6 +15,9 @@ public:
     void show() override;
     void hide() override;
     void move(LONG newX, LONG newY) override;
+    POINT& getCoords() override;
+    LONG getX() override;
+    LONG getY() override;
 };
 
 

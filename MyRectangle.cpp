@@ -17,10 +17,10 @@ MyRectangle::MyRectangle(LONG x, LONG y, LONG halfDiagonal) : Figure(x, y) {
 }
 
 POINT& MyRectangle::getCoords() {
-    points[0] = { this->x + this->halfDiagonal, this->y - this->halfDiagonal};
-    points[1] = { this->x + this->halfDiagonal, this->y + this->halfDiagonal };
-    points[2] = { this->x - this->halfDiagonal, this->y + this->halfDiagonal };
-    points[3] = { this->x - this->halfDiagonal, this->y - this->halfDiagonal};
+    points[0] = { this->x + this->halfDiagonal, this->y + this->halfDiagonal };
+    points[1] = { this->x + this->halfDiagonal, this->y - this->halfDiagonal};
+    points[2] = { this->x - this->halfDiagonal, this->y - this->halfDiagonal};
+    points[3] = { this->x - this->halfDiagonal, this->y + this->halfDiagonal };
     return Figure::getCoords();
 }
 
@@ -34,4 +34,12 @@ void MyRectangle::hide() {
 
 void MyRectangle::move(LONG newX, LONG newY) {
     Figure::move(newX, newY);
+}
+
+LONG MyRectangle::getX() {
+    return Figure::getX();
+}
+
+LONG MyRectangle::getY() {
+    return Figure::getY();
 }
