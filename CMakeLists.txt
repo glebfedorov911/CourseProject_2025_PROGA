@@ -11,4 +11,6 @@ add_executable(CourseProject main.cpp
         MyRectangle.cpp
         MyRectangle.h
         ComplexFigure.cpp
-        ComplexFigure.h)
+        ComplexFigure.h
+        FigureContainer.cpp
+        FigureContainer.h)
