@@ -15,7 +15,7 @@ public:
     void show() override;
     void hide() override;
     void move(LONG newX, LONG newY) override;
-    POINT& getCoords() override;
+    POINT* getCoords() override;
     LONG getX() override;
     LONG getY() override;
 };

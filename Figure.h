@@ -19,7 +19,7 @@ public:
     virtual void show() {};
     virtual void hide() {};
     virtual void move(LONG newX, LONG newY);
-    virtual POINT& getCoords();
+    virtual POINT* getCoords();
     virtual LONG getX();
     virtual LONG getY();
 };

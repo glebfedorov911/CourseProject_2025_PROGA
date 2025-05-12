@@ -14,6 +14,8 @@ protected:
     void printFigure(COLORREF bgColor) override {
         throw std::runtime_error("Method printFigure(COLORREF bgColor) not supported for ComplexFigure");
     };
+    static bool isOnSegment(LONG coordY, LONG coordY1, LONG coordY2,
+                     LONG coordX, LONG coordX1, LONG coordX2);
 public:
     ComplexFigure(MyRectangle* rect, Rhomb* rhomb);
     ~ComplexFigure() override;
@@ -21,7 +23,7 @@ public:
     void show() override;
     void hide() override;
     void move(LONG newX, LONG newY) override;
-    POINT& getCoords() override {
+    POINT* getCoords() override {
         throw std::runtime_error("Method getCoords() not supported for ComplexFigure");
     }
 

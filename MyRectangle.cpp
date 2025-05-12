@@ -16,7 +16,7 @@ MyRectangle::MyRectangle(LONG x, LONG y, LONG halfDiagonal) : Figure(x, y) {
     }
 }
 
-POINT& MyRectangle::getCoords() {
+POINT* MyRectangle::getCoords() {
     points[0] = { this->x + this->halfDiagonal, this->y + this->halfDiagonal };
     points[1] = { this->x + this->halfDiagonal, this->y - this->halfDiagonal};
     points[2] = { this->x - this->halfDiagonal, this->y - this->halfDiagonal};

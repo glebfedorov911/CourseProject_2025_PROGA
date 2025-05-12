@@ -17,8 +17,7 @@ void Rhomb::printFigure(COLORREF bgColor) {
     Figure::printFigure(bgColor);
 }
 
-POINT& Rhomb::getCoords() {
-    cout << this->x << " " << this->firstHalfDiagonal << " " << this->secondHalfDiagonal << " " << this->y << endl;
+POINT* Rhomb::getCoords() {
     points[0] = { this->x, this->y - this->secondHalfDiagonal};
     points[1] = { this->x + this->firstHalfDiagonal, this->y };
     points[2] = { this->x , this->y + this->secondHalfDiagonal };
