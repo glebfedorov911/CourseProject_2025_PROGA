@@ -9,7 +9,7 @@ protected:
     LONG firstHalfDiagonal, secondHalfDiagonal;
     void printFigure(COLORREF bgColor) override;
 public:
-    Rhomb(LONG x, LONG y, LONG firstDiagonal, LONG secondDiagonal);
+    Rhomb(LONG x, LONG y, LONG firstHalfDiagonal, LONG secondHalfDiagonal);
     ~Rhomb() override = default;
 
     void show() override;
