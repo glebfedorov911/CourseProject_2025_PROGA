@@ -28,7 +28,9 @@ ComplexFigure::ComplexFigure(MyRectangle* rect, Rhomb* rhomb) {
     );
 
     if (!(isOnSegment1 && isOnSegment2 && isOnSegment3 && isOnSegment4)) {
-        throw std::invalid_argument("Углы прямоугольника лежат не на сторонах ромба");
+        rect->hide();
+        rhomb->hide();
+        throw ComplexFigureException::FigureException("Углы прямоугольника лежат не на сторонах ромба");
     }
 }
 

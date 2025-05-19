@@ -1,4 +1,5 @@
 #include <windows.h>
+#include <iostream>
 
 #ifndef COURSEPROJECT_FIGURE_H
 #define COURSEPROJECT_FIGURE_H
@@ -9,6 +10,7 @@ protected:
     HWND hwnd;
     HDC hdc;
     POINT points[4];
+    RECT rt;
 
     virtual void printFigure(COLORREF bgColor);
 public:
@@ -22,6 +24,17 @@ public:
     virtual POINT* getCoords();
     virtual LONG getX();
     virtual LONG getY();
+
+    class FigureException : public std::exception
+        {
+            protected:
+                std::string message;
+            public:
+                enum ErrorType{NEGATIVE_INPUT, OUT_OF_BOUNDS, NO_ACCESS};
+                FigureException(ErrorType type, LONG x, LONG y);
+                FigureException(std::string msg) : message(msg) {}
+                const char* what() const noexcept override;
+        };
 };
 
 

@@ -18,6 +18,11 @@ public:
     POINT* getCoords() override;
     LONG getX() override;
     LONG getY() override;
+    class RhombException : public FigureException
+    {
+    public:
+        RhombException(ErrorType type, LONG x, LONG y, LONG firstHalfDiagonal, LONG secondHalfDiagonal);
+    };
 };
 
 

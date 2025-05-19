@@ -12,7 +12,7 @@ protected:
     Rhomb* rhomb;
     MyRectangle* rect;
     void printFigure(COLORREF bgColor) override {
-        throw std::runtime_error("Method printFigure(COLORREF bgColor) not supported for ComplexFigure");
+        throw ComplexFigureException::FigureException("Метод printFigure(COLORREF bgColor) не поддерживается для ComplexFigure");
     };
     static bool isOnSegment(LONG coordY, LONG coordY1, LONG coordY2,
                      LONG coordX, LONG coordX1, LONG coordX2);
@@ -24,17 +24,17 @@ public:
     void hide() override;
     void move(LONG newX, LONG newY) override;
     POINT* getCoords() override {
-        throw std::runtime_error("Method getCoords() not supported for ComplexFigure");
+        throw ComplexFigureException::FigureException("Метод getCoords() не поддерживается для ComplexFigure");
     }
 
     LONG getX() override {
-        throw std::runtime_error("Method getX() not supported for ComplexFigure");
+        throw ComplexFigureException::FigureException("Метод getX() не поддерживается для ComplexFigure");
     }
 
     LONG getY() override {
-        throw std::runtime_error("Method getY() not supported for ComplexFigure");
+        throw ComplexFigureException::FigureException("Метод getY() не поддерживается для ComplexFigure");
     }
+    class ComplexFigureException : public FigureException {};
 };
-
 
 #endif //COURSEPROJECT_COMPLEXFIGURE_H

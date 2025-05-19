@@ -18,6 +18,11 @@ public:
     POINT* getCoords() override;
     LONG getX() override;
     LONG getY() override;
+    class MyRectangleException : public FigureException
+    {
+    public:
+        MyRectangleException(ErrorType type, LONG x, LONG y, LONG halfDiagonal);
+    };
 };
 
 

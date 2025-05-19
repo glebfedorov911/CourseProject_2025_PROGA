@@ -9,7 +9,8 @@ Rhomb::Rhomb(LONG x, LONG y, LONG firstHalfDiagonal, LONG secondHalfDiagonal) : 
     this->secondHalfDiagonal = secondHalfDiagonal;
 
     if (this->firstHalfDiagonal <= 0 || this->secondHalfDiagonal <= 0) {
-        throw std::invalid_argument("Размеры диагоналей ромба не могут быть отрицательными");
+        hide();
+        throw RhombException(FigureException::NEGATIVE_INPUT, x, y, firstHalfDiagonal, secondHalfDiagonal);
     }
 }
 
@@ -22,6 +23,14 @@ POINT* Rhomb::getCoords() {
     points[1] = { this->x + this->firstHalfDiagonal, this->y };
     points[2] = { this->x , this->y + this->secondHalfDiagonal };
     points[3] = { this->x - this->firstHalfDiagonal, this->y };
+    if (
+        points[0].y >= rt.bottom ||
+        points[2].y <= rt.top ||
+        points[1].x >= rt.right ||
+        points[3].x <= rt.left
+    ) {
+        throw RhombException(FigureException::OUT_OF_BOUNDS, x, y, firstHalfDiagonal, secondHalfDiagonal);
+    }
     return Figure::getCoords();
 }
 
@@ -43,4 +52,9 @@ LONG Rhomb::getX() {
 
 LONG Rhomb::getY() {
     return Figure::getY();
+}
+
+Rhomb::RhombException::RhombException(ErrorType type, LONG x, LONG y, LONG firstHalfDiagonal, LONG secondHalfDiagonal) :
+        Rhomb::RhombException::FigureException(type, x, y) {
+    message += ", " + std::to_string(firstHalfDiagonal) + ", " + std::to_string(secondHalfDiagonal);
 }
