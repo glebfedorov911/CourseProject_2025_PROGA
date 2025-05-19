@@ -7,13 +7,13 @@
 class MyRectangle : public Figure {
 protected:
     LONG halfDiagonal;
-    void printFigure(COLORREF bgColor) override;
+    void printFigure() override;
 public:
-    MyRectangle(LONG x, LONG y, LONG halfDiagonal);
+    MyRectangle(LONG x, LONG y, LONG halfDiagonal, COLORREF bgColor);
     ~MyRectangle() override = default;
 
-    void show() override;
-    void hide() override;
+    void show();
+    void hide();
     void move(LONG newX, LONG newY) override;
     POINT* getCoords() override;
     LONG getX() override;

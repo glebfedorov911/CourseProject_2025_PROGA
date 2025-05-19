@@ -4,7 +4,8 @@
 
 using namespace std;
 
-Rhomb::Rhomb(LONG x, LONG y, LONG firstHalfDiagonal, LONG secondHalfDiagonal) : Figure(x, y) {
+Rhomb::Rhomb(LONG x, LONG y, LONG firstHalfDiagonal, LONG secondHalfDiagonal, COLORREF bgColor)
+: Figure(x, y, bgColor) {
     this->firstHalfDiagonal = firstHalfDiagonal;
     this->secondHalfDiagonal = secondHalfDiagonal;
 
@@ -14,8 +15,8 @@ Rhomb::Rhomb(LONG x, LONG y, LONG firstHalfDiagonal, LONG secondHalfDiagonal) : 
     }
 }
 
-void Rhomb::printFigure(COLORREF bgColor) {
-    Figure::printFigure(bgColor);
+void Rhomb::printFigure() {
+    Figure::printFigure();
 }
 
 POINT* Rhomb::getCoords() {
@@ -35,11 +36,11 @@ POINT* Rhomb::getCoords() {
 }
 
 void Rhomb::show() {
-    this->printFigure(RGB(0, 255, 0));
+    Figure::show();
 }
 
 void Rhomb::hide() {
-    this->printFigure(RGB(255, 255, 255));
+    Figure::hide();
 }
 
 void Rhomb::move(LONG newX, LONG newY) {

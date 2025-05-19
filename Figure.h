@@ -11,15 +11,16 @@ protected:
     HDC hdc;
     POINT points[4];
     RECT rt;
+    COLORREF bgColor;
 
-    virtual void printFigure(COLORREF bgColor);
+    virtual void printFigure();
 public:
-    Figure(LONG x, LONG y);
+    Figure(LONG x, LONG y, COLORREF bgColor);
     Figure();
     virtual ~Figure();
 
-    virtual void show() {};
-    virtual void hide() {};
+    void show();
+    void hide();
     virtual void move(LONG newX, LONG newY);
     virtual POINT* getCoords();
     virtual LONG getX();

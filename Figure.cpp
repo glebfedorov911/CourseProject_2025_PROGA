@@ -8,10 +8,11 @@ Figure::Figure() : x(0), y(0)
     GetClientRect(hwnd, &rt);
 }
 
-Figure::Figure(LONG x, LONG y) : Figure()
+Figure::Figure(LONG x, LONG y, COLORREF bgColor) : Figure()
 {
     this->x = x;
     this->y = y;
+    this->bgColor = bgColor;
     if (x < 0 || y < 0) {
         this->hide();
         throw FigureException(FigureException::NEGATIVE_INPUT, x, y);
@@ -28,7 +29,7 @@ POINT* Figure::getCoords() {
     return points;
 }
 
-void Figure::printFigure(COLORREF bgColor) {
+void Figure::printFigure() {
     POINT* points = getCoords();
     HPEN hPen = CreatePen(PS_SOLID, 2, bgColor);
     HBRUSH hBrush = CreateSolidBrush(bgColor);
@@ -37,6 +38,17 @@ void Figure::printFigure(COLORREF bgColor) {
     Polygon(hdc, points, 4);
     DeleteObject(hPen);
     DeleteObject(hBrush);
+}
+
+void Figure::show() {
+    printFigure();
+}
+
+void Figure::hide() {
+    COLORREF bgColorTemp = bgColor;
+    bgColor = RGB(255, 255, 255);
+    show();
+    bgColor = bgColorTemp;
 }
 
 void Figure::move(LONG newX, LONG newY) {

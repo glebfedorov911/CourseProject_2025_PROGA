@@ -4,17 +4,17 @@
 
 using namespace std;
 
-void MyRectangle::printFigure(COLORREF bgColor) {
-    Figure::printFigure(bgColor);
-}
-
-MyRectangle::MyRectangle(LONG x, LONG y, LONG halfDiagonal) : Figure(x, y) {
+MyRectangle::MyRectangle(LONG x, LONG y, LONG halfDiagonal, COLORREF bgColor) : Figure(x, y, bgColor) {
     this->halfDiagonal = halfDiagonal;
 
     if (this->halfDiagonal <= 0) {
         hide();
         throw MyRectangleException(FigureException::NEGATIVE_INPUT, x, y, halfDiagonal);
     }
+}
+
+void MyRectangle::printFigure() {
+    Figure::printFigure();
 }
 
 POINT* MyRectangle::getCoords() {
@@ -34,11 +34,11 @@ POINT* MyRectangle::getCoords() {
 }
 
 void MyRectangle::show() {
-    this->printFigure(RGB(0, 0, 255));
+    Figure::show();
 }
 
 void MyRectangle::hide() {
-    this->printFigure(RGB(255, 255, 255));
+    Figure::hide();
 }
 
 void MyRectangle::move(LONG newX, LONG newY) {

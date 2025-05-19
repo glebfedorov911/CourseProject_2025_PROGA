@@ -11,7 +11,7 @@ class ComplexFigure : public Figure {
 protected:
     Rhomb* rhomb;
     MyRectangle* rect;
-    void printFigure(COLORREF bgColor) override {
+    void printFigure() override {
         throw ComplexFigureException::FigureException("Метод printFigure(COLORREF bgColor) не поддерживается для ComplexFigure");
     };
     static bool isOnSegment(LONG coordY, LONG coordY1, LONG coordY2,
@@ -20,8 +20,8 @@ public:
     ComplexFigure(MyRectangle* rect, Rhomb* rhomb);
     ~ComplexFigure() override;
 
-    void show() override;
-    void hide() override;
+    void show();
+    void hide();
     void move(LONG newX, LONG newY) override;
     POINT* getCoords() override {
         throw ComplexFigureException::FigureException("Метод getCoords() не поддерживается для ComplexFigure");

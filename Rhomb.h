@@ -7,13 +7,13 @@
 class Rhomb : public Figure {
 protected:
     LONG firstHalfDiagonal, secondHalfDiagonal;
-    void printFigure(COLORREF bgColor) override;
+    void printFigure() override;
 public:
-    Rhomb(LONG x, LONG y, LONG firstHalfDiagonal, LONG secondHalfDiagonal);
+    Rhomb(LONG x, LONG y, LONG firstHalfDiagonal, LONG secondHalfDiagonal, COLORREF bgColor);
     ~Rhomb() override = default;
 
-    void show() override;
-    void hide() override;
+    void show();
+    void hide();
     void move(LONG newX, LONG newY) override;
     POINT* getCoords() override;
     LONG getX() override;
