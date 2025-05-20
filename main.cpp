@@ -14,44 +14,20 @@ int main() {
     setlocale(LC_ALL, "ru_RU.UTF-8");
 
     try {
-        Rhomb *rhomb = new Rhomb(120, 180, 80, 80);
-//        rhomb->show();
-//        Sleep(1000);
-//        rhomb->hide();
-//        Sleep(1000);
-//        rhomb->move(250, 250);
-//        Sleep(1000);
-//        rhomb->hide();
-//        Sleep(1000);
-
-        MyRectangle *myRect = new MyRectangle(120, 180, 40);
-//        myRect->show();
-//        Sleep(1000);
-//        myRect->hide();
-//        Sleep(1000);
-//        myRect->move(250, 250);
-//        Sleep(1000);
-//        myRect->hide();
-//        Sleep(1000);
-
-        Rhomb *rhomb2 = new Rhomb(280, 280, 80, 80);
-        MyRectangle *myRect2 = new MyRectangle(280, 280, 40);
+        Sleep(1000);
+        Rhomb *rhomb2 = new Rhomb(600, 320, 80, 80, RGB(255, 0, 0));
+        MyRectangle *myRect2 = new MyRectangle(600, 320, 40, RGB(0, 0, 255));
         ComplexFigure *cf = new ComplexFigure(myRect2, rhomb2);
-//        cf->show();
-//        Sleep(2000);
-//        cf->hide();
-//        Sleep(2000);
-//        cf->move(180, 360);
-        FigureContainer *cont = new FigureContainer();
-        cont->addToContainer(rhomb);
-        cont->addToContainer(myRect);
-        cont->addToContainer(cf);
+        FigureContainer* cont = new FigureContainer();
+        cont->addToContainer(rhomb2);
+        cont->addToContainer(myRect2);
         cont->showFromContainer();
-        cont->deleteFromContainer(myRect);
-    } catch (const std::invalid_argument& e) {
+        Sleep(3000);
+        cont->deleteFromContainer(rhomb2);
+        cont->showFromContainer();
+
+    } catch (const Figure::FigureException& e) {
         std::cerr << "Ошибка: " << e.what() << std::endl;
-    } catch (const char* err) {
-        std::cerr << "Ошибка: " << err << std::endl;
     }
     Sleep(500000);
 }
